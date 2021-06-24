@@ -42,6 +42,10 @@ export const App = () => {
     setIncompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompleteTodos);
   };
+  const onClickEdit = (index) => {
+    const editTodoText = incompleteTodos[index];
+    alert(editTodoText);
+  };
 
   return (
     <>
@@ -57,6 +61,8 @@ export const App = () => {
 
       <IncompleteTodos
         todos={incompleteTodos}
+        onChange={onChangeTodoText}
+        onClickEdit={onClickEdit}
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete}
       />

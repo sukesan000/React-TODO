@@ -1,7 +1,13 @@
 import React from "react";
 
 export const IncompleteTodos = (props) => {
-  const { todos, onClickComplete, onClickDelete } = props;
+  const {
+    todos,
+    onChange,
+    onClickEdit,
+    onClickComplete,
+    onClickDelete
+  } = props;
   return (
     <div className="incomplete-area">
       <p className="title">未完了のTODO</p>
@@ -9,7 +15,9 @@ export const IncompleteTodos = (props) => {
         {todos.map((todo, index) => {
           return (
             <div key={todo} className="list-row">
-              <li>{todo}</li>
+              {/*<li>{todo}</li>*/}
+              <input value={todo} onChange={onChange} />
+              <button onClick={() => onClickEdit(index)}>編集</button>
               <button onClick={() => onClickComplete(index)}>完了</button>
               <button onClick={() => onClickDelete(index, "incomplete")}>
                 削除
